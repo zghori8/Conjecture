@@ -3,46 +3,147 @@
 <head>
 	<meta charset="utf-8">
 	
-	<title>Collatz Conjecture</title>	
+	<title>Population Growth Loops</title>	
 	
-	<meta name="description" content="Collatz Conjecture">
+	<meta name="description" content="Population Growth Loops">
 	<meta name="author" content="Zainab Ghori">	
 	
 	<link rel="stylesheet" href="animate.css">
-        <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
-        <link rel="shortcut icon" href="https://mathmunch.files.wordpress.com/2013/10/infinityjh.gif" />
+        <link rel="shortcut icon" href="https://ak4.picdn.net/shutterstock/videos/7171324/thumb/1.jpg" />
 <style>
+    body {
+        background-image: url("https://culturainteractive.com/wp-content/uploads/2017/02/pexels-photo-296115.jpeg");
+        background-size: cover;
+        font-family: Century Gothic;
+        font-size: 18px;
+        padding: 50px
+   }
+   .button:hover {
+        background-color: #3c718e;
+        color: #000000;
+   }
+   .back-button {
+        border-radius: 28px;
+        border: 2px solid white;
+   }
+   .back-button:hover {
+        text-decoration: none;
+        box-shadow: 3px 3px 3px 3px #ffffff;
+       -webkit-box-shadow: 3px 3px 3px 3px #ffffff;
+       -moz-box-shadow: 3px 3px 3px 3px #ffffff;
+   }
+   .image1 {
+       border: 3px solid #42c86d;
+   }
+    #reportContainer {
+       position: relative;
+       margin-left: 40px;
+       margin-right: auto;
+       margin-top: 10px;
+       width: 70%; 
+       padding: 2%; 
+       background: rgba(251, 243, 243, 1.0);
+       border-radius: 1.0em;        
+       border: 3px dashed #1992c3;
+   }
+   .button {
+       padding: 6px 8px;
+       font-size: 15px;
+       text-align: center;
+       cursor: pointer;
+       outline: none;
+       color: #fff;
+       background-color: #89aee4;
+       color: #ffffff;
+       border: none;
+       border-radius: 10px;
+       box-shadow: 0 9px #999;
+    }
+    .button:active {
+       background-color: #256f6b;
+       box-shadow: 0 5px #666;
+       transform: translateY(4px);
+       color: 000000;
+    }
+   .input {
+       border-radius: 6px;
+       border: 1.5px solid #3b0a1a;
+       font-size: 15px;
+       font-family: Century Gothic;
+       box-shadow: 2px 2px 7px 3px #cbe8ff;
+    } 
+    h1 {
+        color: black;
+        font-family: 'Berlin Sans FB';
+        text-shadow: 0px 3px 0px #ffffff,
+        0px 14px 10px rgba(0,0,0,0.20),
+        0px 24px 2px rgba(0,0,0,0.2),
+        0px 34px 30px rgba(0,0,0,0.2);
+    }
+    h2 {
+        color: black;
+        font-family: 'Berlin Sans FB';
+        text-shadow: 0px 3px 0px #ffffff,
+        0px 14px 10px rgba(0,0,0,0.20),
+        0px 24px 2px rgba(0,0,0,0.2),
+        0px 34px 30px rgba(0,0,0,0.2);
+        font-size: 25px;
+    }
+    .error {
+        font-size: 23px;
+        color: red;
+   }
+    .info {
+        font-size: 18px;
+        color: #24073e;
+   }
+   .parastyle {
+        color: #090880;
+   }
+
 </style>
 </head>
 
 <body>
-<h1 span class="animated lightSpeedIn">Collatz Conjecture!</h1>
-<h2>The collatz conjecture application is a conjecture in mathermatics. The sequence is defined as follows:<br />If n is a <i>positive</i> integer, then divide the value by 2 (n/2). If n is a <i>negative</i> integer, then multiply n by 3 and add 1 (3n +1).</h2>
+<a href="http://ics.actonhighschool.ca/2017-2018/ghorib3cf8/"><img src="https://lh3.googleusercontent.com/NA5r02jTl0idWLTaC-l_-DXzZbQPdHlGrH_OVlJmaB9gC_I8kZ1z8Q6kpXZrpXBM6A9r=w300" alt="Back Button" title="Back" class="back-button" style="width:60px; height:60px;" /></a></center>
+<div id="reportContainer">
+<h1 span class="animated lightSpeedIn"><center>POPULATION GROWTH LOOPS</h1>
+<p class="parastyle"><i><center>Population growth rate gives us an approximate guess of the rate at which something is increasingly growing at. To calculate the final population of a sample, multiply the initial population and raise it to the exponent of the growth rate times the time. With this quick formula, you can find the population growth rate easily:</i></center></p>
+<center><a href="http://www.coolmath.com/algebra/17-exponentials-logarithms/06-population-exponential-growth-01"><img src="http://www.coolmath.com/sites/cmat/files/images/06-exponentials-01.gif" alt="CoolMmath" title="coolmath.com" align="center" class="image1" style="height: 250px; width: 600px;" /></center></a>
 
-	<form method="post" action="collatz_conjecture_application.php" style="padding: 20px 20px;">
-		<input type="number" name="num" autocomplete="off" value=""></input>
-		<input type="submit" value="SUBMIT" name="submit1"></input>
-        </form>
+<hr><h2>Enter Information!</h2>
+<form method="post" action="population_growth_loops.php">
+     <p class="info"><i>Initial Population:</i></p><input class="input" name="initial" type="text" value="<?php echo $_POST['initial']; ?>" style="width: 120px; height: 25px;" placeholder="Numeric Value" required></input>
+     <p class="info"><i>Growth Rate (%):</i></p><input class="input" name="rate" type="text" value="<?php echo $_POST['rate']; ?> %" style="width: 120px; height: 25px;" placeholder="Numeric Value" required></input>
+     <p class="info"><i>Starting time:</i></p><input class="input" name="start" type="text" value="<?php echo $_POST['start']; ?>" style="width: 120px; height: 25px;" placeholder="Numeric Value" required></input>
+     <p class="info"><i>Ending time:</i></p><input class="input" name="end" type="text" value="<?php echo $_POST['end']; ?>" style="width: 120px; height: 25px;" placeholder="Numeric Value" required></input><br /><br />
+     <input class="button" type="submit" name="submit" value="Show The Growth"></input><br /><br /><hr>
+</form>
+
 <?php
 if ($_POST['submit']) {
-    $input = $_POST['input'];
+    $initial = $_POST['initial'];
+    $rate = $_POST['rate'];
+    $t1 = $_POST['start'];
+    $t2 = $_POST['end'];
 
-if ($input = "") {
-   echo "<p class='error'>ERROR: Please enter a number.</p>";
-} else if ($input <= 0) {
-   echo "<p class='error'>ERROR: Number has to be greater than 0.</p>";
-} else {
-   echo "<p class'info'>" . $input . "</p>";
-   while ($input > 1) {
-       if ($input % 2 == 0) {
-       $input = $input/2;
-       } else { 
-       $input = (3*$input) + 1;
-       }
-       echo "<p class='info'>" . $input . "</p>;
-       } 
-}       
+    $t1 = $t1;
+
+    if ($t1 > $t2) {
+        echo "<p class='error'><b>*ERROR: Start time is greater than end time.</b></p>";
+      }
+    else if ($initial == "" OR $rate == "" OR $t1 == "" OR $t2 == "") {
+        echo "<p class='error'><b>*ERROR: Empty field(s) - Please fill in all fields.</b></p>";
+      }
+    else {
+
+      do {        
+         $result = $initial * (exp(($rate / 100) * ($t2 - $t1));
+         echo "<center><p class='info'><b>The final population in year " . $t1 . " is " . $result . "</b></p>";
+         $t1 = $t1 + 1;
+      } while ($t1 <= $t2);
 }
+}        
 ?>
 
 </body>
