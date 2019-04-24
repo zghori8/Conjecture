@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>Collatz Conjecture</title>	
+	
+	<meta name="description" content="Collatz Conjecture">
+	<meta name="author" content="Zainab Ghori">	
+	
+	<link rel="stylesheet" href="animate.css">
+        <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+        <link rel="shortcut icon" href="https://mathmunch.files.wordpress.com/2013/10/infinityjh.gif" />
+<style>
+</style>
+</head>
+
+<body>
+<h1 span class="animated lightSpeedIn">Collatz Conjecture!</h1>
+<h2>The collatz conjecture application is a conjecture in mathermatics. The sequence is defined as follows:<br />If n is a <i>positive</i> integer, then divide the value by 2 (n/2). If n is a <i>negative</i> integer, then multiply n by 3 and add 1 (3n +1).</h2>
+
+	<form method="post" action="collatz_conjecture_application.php" style="padding: 20px 20px;">
+		<input type="number" name="num" autocomplete="off" value=""></input>
+		<input type="submit" value="SUBMIT" name="submit1"></input>
+        </form>
+<?php
+if ($_POST['submit']) {
+    $input = $_POST['input'];
+
+if ($input = "") {
+   echo "<p class='error'>ERROR: Please enter a number.</p>";
+} else if ($input <= 0) {
+   echo "<p class='error'>ERROR: Number has to be greater than 0.</p>";
+} else {
+   echo "<p class'info'>" . $input . "</p>";
+   while ($input > 1) {
+       if ($input % 2 == 0) {
+       $input = $input/2;
+       } else { 
+       $input = (3*$input) + 1;
+       }
+       echo "<p class='info'>" . $input . "</p>;
+       } 
+}       
+}
+?>
+
+</body>
+</html>
